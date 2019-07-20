@@ -1,6 +1,6 @@
 {
-  "CLOSE": "CLOSE",
-  "submit": "SUBMIT",
+  "CLOSE": "close",
+  "submit": "submit",
   "search": "Search",
   "search_trainer": "Search trainer",
   "search_result": "trainer found",
