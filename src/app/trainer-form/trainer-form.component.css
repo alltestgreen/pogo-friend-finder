@@ -1,0 +1,17 @@
+.link-add-location {
+  font-size: 14px;
+  text-decoration: underline !important;
+  cursor: pointer;
+  color: midnightblue !important;
+  line-height: 24px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+}
+
+.form-header {
+  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 3px;
+}

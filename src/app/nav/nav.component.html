@@ -1,0 +1,30 @@
+<header>
+  <div class="container">
+    <div>
+      <a routerLink="/" class="d-sm-none d-md-none d-lg-none"><i class="material-icons">search</i></a>
+      <a routerLink="/" class="logo d-none d-sm-block">{{ 'search_trainer' | translate }}</a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a class="menu-link d-none d-sm-block" routerLink="/add">{{ 'menu_add_trainer' | translate }}</a>
+          <a class="d-sm-none d-md-none d-lg-none" routerLink="/add">
+            <i class="material-icons">person_add</i>
+          </a>
+        </li>
+        <li>
+          <a class="menu-link d-none d-sm-block" routerLink="/contact">{{ 'menu_contact' | translate }}</a>
+          <a class="d-sm-none d-md-none d-lg-none" routerLink="/contact">
+            <i class="material-icons">chat_bubble_outline</i>
+          </a>
+        </li>
+        <li [hidden]="this.selectedLanguage == 'hu'">
+          <img class="flag" [src]="'./assets/flag/hu.svg'" alt="HU" (click)="setLang('hu')">
+        </li>
+        <li [hidden]="this.selectedLanguage == 'en'">
+          <img class="flag" [src]="'./assets/flag/uk.svg'" alt="EN" (click)="setLang('en')">
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

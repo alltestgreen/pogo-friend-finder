@@ -1,0 +1,167 @@
+<mat-card class="pogo-card" [hidden]="submitted">
+
+  <p class="intro-text">{{ 'add_intro' | translate }}</p>
+  <mat-divider class="intro-divider"></mat-divider>
+
+  <form #form="ngForm" class="pogo-form" autocomplete="off" (submit)="onSubmit(form)">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <label>
+            <input matInput placeholder="{{ 'trainer_name' | translate }}" #name="ngModel" name="name"
+                   [(ngModel)]="formData.name" required>
+          </label>
+          <mat-error *ngIf="name.hasError('required')">{{ 'error_field_required' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <label>
+            <input matInput placeholder="{{ 'trainer_code' | translate }}" #code="ngModel" name="code"
+                   [(ngModel)]="formData.code" pattern="([^\d]*\d){12}" required>
+          </label>
+          <mat-error *ngIf="code.hasError('required')">{{ 'error_field_required' | translate }}</mat-error>
+          <mat-error *ngIf="code.hasError('pattern')">{{ 'error_trainer_code_pattern' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-header">
+      {{ 'location' | translate }}:
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'county' | translate }}</mat-label>
+          <mat-select [formControl]="countySelectControl" (selectionChange)="selectCounty(1)" required>
+            <mat-option *ngFor="let county of counties" [value]="county">
+              {{county}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="countySelectControl.hasError('required')">{{ 'error_field_required' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'city' | translate }}</mat-label>
+          <mat-select [formControl]="areaSelectControl" (selectionChange)="selectArea(1)" required>
+            <mat-option *ngFor="let area of areas" [value]="area">
+              {{area}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="areaSelectControl.hasError('required')">{{ 'error_field_required' | translate }}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div><a class="link-add-location" (click)="showLocation2 = true"
+            [hidden]="showLocation2">{{ 'additional_location' | translate }}</a></div>
+
+    <div [hidden]="!showLocation2" class="form-header">
+      {{ 'location' | translate }} 2:
+    </div>
+
+    <div class="row" [hidden]="!showLocation2">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'county' | translate }} 2</mat-label>
+          <mat-select [formControl]="countySelectControl2" (selectionChange)="selectCounty(2)">
+            <mat-option [value]="">-</mat-option>
+            <mat-option *ngFor="let county of counties" [value]="county">
+              {{county}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'city' | translate }} 2</mat-label>
+          <mat-select [formControl]="areaSelectControl2" (selectionChange)="selectArea(2)">
+            <mat-option *ngFor="let area of areas2" [value]="area">
+              {{area}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <a class="link-add-location" (click)="showLocation3 = true"
+       [hidden]="!showLocation2 || showLocation3">{{ 'additional_location' | translate }}</a>
+
+    <div [hidden]="!showLocation3" class="form-header">
+      {{ 'location' | translate }} 3:
+    </div>
+
+    <div class="row" [hidden]="!showLocation3">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'county' | translate }} 3</mat-label>
+          <mat-select [formControl]="countySelectControl3" (selectionChange)="selectCounty(3)">
+            <mat-option [value]="">-</mat-option>
+            <mat-option *ngFor="let county of counties" [value]="county">
+              {{county}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'city' | translate }} 3</mat-label>
+          <mat-select [formControl]="areaSelectControl3" (selectionChange)="selectArea(3)">
+            <mat-option *ngFor="let area of areas3" [value]="area">
+              {{area}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field>
+      <mat-label>{{ 'team' | translate }}</mat-label>
+      <mat-select [formControl]="teamSelectControl" [(ngModel)]="formData.team" required>
+        <mat-option *ngFor="let team of teams" [value]="team">
+          <img [src]="'./assets/images/team/'+team+'.png'" width="30px" height="30px" alt="{{team}}">
+          {{team}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="teamSelectControl.hasError('required')">{{ 'error_field_required' | translate }}</mat-error>
+    </mat-form-field>
+
+    <div class="form-header">
+      {{ 'interests' | translate }}:
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestGift" [(ngModel)]="formData.interestGift">Gift</mat-checkbox>
+      </div>
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestRaid" [(ngModel)]="formData.interestRaid">Raid</mat-checkbox>
+      </div>
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestPvp" [(ngModel)]="formData.interestPvp">PvP</mat-checkbox>
+      </div>
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestTrade" [(ngModel)]="formData.interestTrade">Trade</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="pogo-button"
+              [disabled]="form.invalid || this.countySelectControl.invalid || this.teamSelectControl.invalid">{{ 'submit' | translate }}
+      </button>
+    </div>
+
+  </form>
+</mat-card>
+
+<mat-card *ngIf="submitted" [hidden]="!submitted" class="pogo-card info-text text-center">
+  <i class="material-icons" style="font-size: 72px">check_circle_outline</i>
+  <p>{{ 'trainer_add_confirm' | translate }}</p>
+</mat-card>
+
+
+

@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: Lato, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  margin: 0 auto;
+  background: linear-gradient(to right, #24CCAA, #A2DB95);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1.3em 0 1em 0;
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+section {
+  margin: 0 auto;
+  padding: 1em;
+}
+
+div.validation-error {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.info-text {
+  text-align: center;
+  font-style: italic;
+  padding: 15px;
+  white-space: pre-wrap;
+}
+
+.intro-text {
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.intro-divider {
+  margin-top: -10px !important;
+}
+
+.pogo-card {
+  background-color: rgba(250, 250, 250, 0.8);
+  max-width: 650px;
+  margin: 15px auto;
+}
+
+.pogo-form .form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pogo-form .mat-form-field, .pogo-form label {
+  width: 100%;
+}
+
+.pogo-form .mat-checkbox label {
+  width: auto;
+}
+
+.pogo-button {
+  color: #fff;
+  background: linear-gradient(to right, #24CCAA, #A2DB95);
+  border-radius: 50px;
+  border: 0;
+  padding: 10px 45px;
+  margin: 15px auto 0 auto;
+  min-width: 150px;
+  text-transform: uppercase;
+}
+
+.pogo-button button:disabled, button[disabled] {
+  background: linear-gradient(to right, #B4D6CF, #C1D5E5);
+}

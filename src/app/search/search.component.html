@@ -1,0 +1,153 @@
+<mat-accordion class="search-box">
+  <mat-expansion-panel (opened)="searchPanelOpen = true; this.searchSubmitted = false;"
+                       (closed)="searchPanelOpen = false"
+                       expanded="{{searchPanelOpen}}">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ 'search' | translate }}:
+      </mat-panel-title>
+      <mat-panel-description>
+        <div [hidden]="!searchSubmitted"> {{this.searchResults.length}} {{ 'search_result' | translate }}</div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'county' | translate }}</mat-label>
+          <mat-select name="county" [(ngModel)]="searchCriteria.location.county" (selectionChange)="selectCounty()">
+            <mat-option value="">{{ 'all' | translate }}</mat-option>
+            <mat-option *ngFor="let county of counties" [value]="county">
+              {{county}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'city' | translate }}</mat-label>
+          <mat-select name="area" [(ngModel)]="searchCriteria.location.area">
+            <mat-option value="">{{ 'all' | translate }}</mat-option>
+            <mat-option *ngFor="let area of areas" [value]="area">
+              {{area}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>{{ 'team' | translate }}</mat-label>
+          <mat-select name="team" class="team-select" [(ngModel)]="searchCriteria.team">
+            <mat-option value="">{{ 'all' | translate }}</mat-option>
+            <mat-option *ngFor="let team of teams" [value]="team" [ngClass]="team">
+              <img [src]="'./assets/images/team/'+team+'.png'" width="30px" height="30px" alt="{{team}}">
+              {{team}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <label>
+            <input matInput placeholder="{{ 'trainer_name_or_code' | translate }}" name="nameOrCode"
+                   [(ngModel)]="searchCriteria.nameOrCode">
+          </label>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div style="padding-bottom: 15px; font-weight: bold;">
+      {{ 'interests' | translate }}:
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestRaid" [(ngModel)]="searchCriteria.interestRaid">Raid</mat-checkbox>
+      </div>
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestGift" [(ngModel)]="searchCriteria.interestGift">Gift</mat-checkbox>
+      </div>
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestPvp" [(ngModel)]="searchCriteria.interestPvp">PvP</mat-checkbox>
+      </div>
+      <div class="col-sm-3 col-6">
+        <mat-checkbox name="interestTrade" [(ngModel)]="searchCriteria.interestTrade">Trade</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button (click)="doSearch()" class="pogo-button" [disabled]="searchInProgress" type="submit">
+        <label *ngIf="!searchInProgress" style="margin-bottom: 0"> {{ 'search' | translate }}</label>
+        <img *ngIf="searchInProgress" class="loader" src="./assets/images/loader.svg" alt="loading">
+      </button>
+    </div>
+
+    <div *ngIf="!searchHasResult" class="text-center info-text">{{ 'no_search_result' | translate }}</div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-card *ngFor="let trainer of searchResults" [ngClass]="trainer.team">
+  <mat-card-content>
+
+    <div class="row">
+      <div class="col-sm-8 card-data">
+
+        <div class="card-trainer-name">
+          <img [src]="'./assets/images/team/'+trainer.team+'.png'" class="icon-team"
+               alt="{{trainer.team}}"> {{trainer.name}}
+        </div>
+
+        <div class="row">
+          <div class="col-4 card-label">{{ 'team' | translate }}:</div>
+          <div class="col-8">{{trainer.team}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-4 card-label">{{ 'trainer_code' | translate }}:</div>
+          <div class="col-8 col-7">{{trainer.code}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-4 card-label">
+            {{ 'location' | translate }}:
+          </div>
+          <div class="col-8 col-6">
+            <div *ngIf="trainer.location.county">{{trainer.location.county}}, <b>{{trainer.location.area}}</b></div>
+            <div *ngIf="trainer.location2.county">{{trainer.location2.county}}, <b>{{trainer.location2.area}}</b></div>
+            <div *ngIf="trainer.location3.county">{{trainer.location3.county}}, <b>{{trainer.location3.area}}</b></div>
+          </div>
+        </div>
+
+        <div class="row"
+             *ngIf="trainer.interestGift || trainer.interestRaid || trainer.interestPvp || trainer.interestTrade">
+          <div class="col-4 card-label">
+            {{ 'interests' | translate }}:
+          </div>
+          <div class="col-8">
+            <img *ngIf="trainer.interestGift" class="icon-interest icon-gift" title="{{ 'interest_gift' | translate}}"
+                 alt="gift" src="./assets/images/icon/gift.png">
+            <img *ngIf="trainer.interestRaid" class="icon-interest icon-raid" title="{{ 'interest_raid' | translate}}"
+                 alt="raid" src="./assets/images/icon/raidw.png">
+            <img *ngIf="trainer.interestPvp" class="icon-interest icon-pvp" title="{{ 'interest_pvp' | translate}}"
+                 alt="pvp" src="./assets/images/icon/pvpw.png">
+            <img *ngIf="trainer.interestTrade" class="icon-interest icon-trade"
+                 title="{{ 'interest_trade' | translate}}" alt="Trade" src="./assets/images/icon/tradew.png">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="d-none d-sm-block col-sm-3 offset-sm-1 qr-wrapper">
+        <qrcode class="qr-code" [qrdata]="trainer.code" [size]="128" [level]="'M'"></qrcode>
+      </div>
+
+      <div class="d-sm-none d-md-none d-lg-none col-12 text-center">
+        <button class="pogo-button" type="submit" (click)="showQR(trainer.name, trainer.code)">{{ 'show_QR' | translate}}</button>
+      </div>
+
+    </div>
+  </mat-card-content>
+</mat-card>
