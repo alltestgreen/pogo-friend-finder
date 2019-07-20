@@ -1,0 +1,309 @@
+[
+  {
+    "name": "Budapest",
+    "areas": [
+      "I. kerület",
+      "II. kerület",
+      "III. kerület",
+      "IV. kerület",
+      "V. kerület",
+      "VI. kerület",
+      "VII. kerület",
+      "VIII. kerület",
+      "IX. kerület",
+      "X. kerület",
+      "XI. kerület",
+      "XII. kerület",
+      "XIII. kerület",
+      "XIV. kerület",
+      "XV. kerület",
+      "XVI. kerület",
+      "XVII. kerület",
+      "XVII. kerület",
+      "XIX. kerület",
+      "XX. kerület",
+      "XXI. kerület",
+      "XXII. kerület",
+      "XXIII. kerület"
+    ]
+  },
+  {
+    "name": "Pest megye",
+    "areas": [
+      "Abony",
+      "Albertirsa",
+      "Budakeszi",
+      "Budaörs",
+      "Biatorbágy",
+      "Cegléd",
+      "Csemő",
+      "Dabas",
+      "Dánszentmiklós",
+      "Dunaharaszti",
+      "Dunakeszi",
+      "Dunavarsány",
+      "Érd",
+      "Fót",
+      "Göd",
+      "Gödöllő",
+      "Gyál",
+      "Gyömrő",
+      "Kistarcsa",
+      "Monor",
+      "Nagykáta",
+      "Nagykőrös",
+      "Ócsa",
+      "Pécel",
+      "Pilisvörösvár",
+      "Pomáz",
+      "Solymár",
+      "Százhalombatta",
+      "Szentendre",
+      "Szigethalom",
+      "Szigetszentmiklós",
+      "Tököl",
+      "Törökbálint",
+      "Vác",
+      "Vecsés",
+      "Veresegyház"
+    ]
+  },
+  {
+    "name": "Baranya",
+    "areas": [
+      "Komló",
+      "Mohács",
+      "Pécs",
+      "Siklós",
+      "Szigetvár"
+    ]
+  },
+  {
+    "name": "Borsod-Abaúj-Zemplén",
+    "areas": [
+      "Edelény",
+      "Encs",
+      "Kazincbarcika",
+      "Mezőkövesd",
+      "Miskolc",
+      "Tiszaújváros",
+      "Sajószentpéter",
+      "Sárospatak",
+      "Sátoraljaújhely",
+      "Szerencs",
+      "Ózd"
+    ]
+  },
+  {
+    "name": "Bács-Kiskun",
+    "areas": [
+      "Baja",
+      "Izsák",
+      "Kalocsa",
+      "Kiskunfélegyháza",
+      "Kiskunhalas",
+      "Kiskunmajsa",
+      "Kiskőrös",
+      "Kecel",
+      "Kecskemét",
+      "Lajosmizse",
+      "Jánoshalma",
+      "Tiszakécske"
+    ]
+  },
+  {
+    "name": "Békés",
+    "areas": [
+      "Battonya",
+      "Békés",
+      "Békéscsaba",
+      "Békésszentandrás",
+      "Csorvás",
+      "Füzesgyarmat",
+      "Gádoros",
+      "Gyomaendrőd",
+      "Gyula",
+      "Kardoskút",
+      "Kaszaper",
+      "Mezőberény",
+      "Mezőhegyes",
+      "Mezőkovácsháza",
+      "Orosháza",
+      "Sarkad",
+      "Szarvas",
+      "Szeghalom",
+      "Tótkomlós"
+    ]
+  },
+  {
+    "name": "Csongrád",
+    "areas": [
+      "Csongrád",
+      "Hódmezővásárhely",
+      "Makó",
+      "Mórahalom",
+      "Sándorfalva",
+      "Szeged",
+      "Szentes"
+    ]
+  },
+  {
+    "name": "Fejér",
+    "areas": [
+      "Bicske",
+      "Dunaújváros",
+      "Gárdony",
+      "Ercsi",
+      "Enying",
+      "Etyek",
+      "Mór",
+      "Pákozd",
+      "Sárbogárd",
+      "Szabadegyháza",
+      "Székesfehérvár"
+    ]
+  },
+  {
+    "name": "Győr-Moson-Sopron",
+    "areas": [
+      "Csorna",
+      "Kapuvár",
+      "Győr",
+      "Mosonmagyaróvár",
+      "Sopron"
+    ]
+  },
+  {
+    "name": "Hajdú-Bihar",
+    "areas": [
+      "Balmazújváros",
+      "Berettyóújfalu",
+      "Nyírbátor",
+      "Hajdúhadház",
+      "Hajdúnánás",
+      "Hajdúsámson",
+      "Debrecen",
+      "Hajdúböszörmény",
+      "Hajdúszoboszló",
+      "Püspökladány"
+    ]
+  },
+  {
+    "name": "Heves",
+    "areas": [
+      "Boconád",
+      "Eger",
+      "Füzesabony",
+      "Gyöngyös",
+      "Hatvan",
+      "Heves"
+    ]
+  },
+  {
+    "name": "Jász-Nagykun-Szolnok",
+    "areas": [
+      "Cserkeszőlő",
+      "Jászberény",
+      "Karcag",
+      "Kisújszállás",
+      "Mezőtúr",
+      "Szolnok",
+      "Tiszaföldvár",
+      "Tiszafüred",
+      "Túrkeve",
+      "Törökszentmiklós"
+    ]
+  },
+  {
+    "name": "Komárom-Esztergom",
+    "areas": [
+      "Dorog",
+      "Esztergom",
+      "Komárom",
+      "Tata",
+      "Tatabánya",
+      "Oroszlány"
+    ]
+  },
+  {
+    "name": "Nógrád",
+    "areas": [
+      "Balassagyarmat",
+      "Bátonyterenye",
+      "Pásztó",
+      "Salgótarján"
+    ]
+  },
+  {
+    "name": "Somogy",
+    "areas": [
+      "Barcs",
+      "Balatonboglár",
+      "Balatonvilágos",
+      "Kaposvár",
+      "Nagyatád",
+      "Marcali",
+      "Siófok"
+    ]
+  },
+  {
+    "name": "Szabolcs-Szatmár-Bereg",
+    "areas": [
+      "Kisvárda",
+      "Nagykálló",
+      "Nyírbátor",
+      "Nyíregyháza",
+      "Mátészalka",
+      "Tiszavasvári",
+      "Újfehértó"
+    ]
+  },
+  {
+    "name": "Tolna",
+    "areas": [
+      "Bonyhád",
+      "Dunaföldvár",
+      "Dombóvár",
+      "Paks",
+      "Szekszárd",
+      "Tamási",
+      "Tolna"
+    ]
+  },
+  {
+    "name": "Vas",
+    "areas": [
+      "Celldömölk",
+      "Körmend",
+      "Kőszeg",
+      "Sárvár",
+      "Szentgotthárd",
+      "Szombathely"
+    ]
+  },
+  {
+    "name": "Veszprém",
+    "areas": [
+      "Ajka",
+      "Balatonalmádi",
+      "Balatonfüred",
+      "Pápa",
+      "Tapolca",
+      "Ugod",
+      "Várpalota",
+      "Veszprém"
+    ]
+  },
+  {
+    "name": "Zala",
+    "areas": [
+      "Hévíz",
+      "Keszthely",
+      "Lenti",
+      "Nagykanizsa",
+      "Zalaegerszeg"
+    ]
+  }
+]
+
+
